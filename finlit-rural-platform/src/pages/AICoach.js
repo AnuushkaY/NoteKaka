@@ -12,6 +12,7 @@ function AICoach() {
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [showQuickQuestions, setShowQuickQuestions] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const messagesEndRef = useRef(null);
 
   const quickQuestions = [
@@ -39,6 +40,17 @@ function AICoach() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % 4);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleSlideClick = (slideIndex) => {
+    setCurrentSlide(slideIndex);
+  };
 
   const handleSendMessage = () => {
     if (!inputText.trim()) return;
@@ -143,6 +155,67 @@ function AICoach() {
           <div className="voice-status">
             {isVoiceMode ? '🎤 Voice Mode Active' : '🔊 Tap mic icon to enable voice'}
           </div>
+        </div>
+      </div>
+
+      <div className="intro-video-section">
+        <div className="video-container">
+          <div className="animated-intro">
+            <div className="intro-animation">
+              <div className={`animation-slide slide-1 ${currentSlide === 0 ? 'active' : ''}`}>
+                <div className="slide-content">
+                  <div className="slide-icon">📚</div>
+                  <h3>Learn at Your Pace</h3>
+                  <p>Interactive lessons on savings, loans, digital payments, and government schemes</p>
+                </div>
+              </div>
+              
+              <div className={`animation-slide slide-2 ${currentSlide === 1 ? 'active' : ''}`}>
+                <div className="slide-content">
+                  <div className="slide-icon">🤖</div>
+                  <h3>AI Coach 24/7</h3>
+                  <p>Get instant answers to your financial questions anytime</p>
+                </div>
+              </div>
+              
+              <div className={`animation-slide slide-3 ${currentSlide === 2 ? 'active' : ''}`}>
+                <div className="slide-content">
+                  <div className="slide-icon">🎯</div>
+                  <h3>Personalized Guidance</h3>
+                  <p>Learning paths tailored to your financial situation</p>
+                </div>
+              </div>
+              
+              <div className={`animation-slide slide-4 ${currentSlide === 3 ? 'active' : ''}`}>
+                <div className="slide-content">
+                  <div className="slide-icon">🛡️</div>
+                  <h3>Stay Safe</h3>
+                  <p>Protection against scams and risky financial decisions</p>
+                </div>
+              </div>
+            </div>
+            <div className="slide-indicators">
+              <button 
+                className={`indicator ${currentSlide === 0 ? 'active' : ''}`} 
+                onClick={() => handleSlideClick(0)}
+              ></button>
+              <button 
+                className={`indicator ${currentSlide === 1 ? 'active' : ''}`} 
+                onClick={() => handleSlideClick(1)}
+              ></button>
+              <button 
+                className={`indicator ${currentSlide === 2 ? 'active' : ''}`} 
+                onClick={() => handleSlideClick(2)}
+              ></button>
+              <button 
+                className={`indicator ${currentSlide === 3 ? 'active' : ''}`} 
+                onClick={() => handleSlideClick(3)}
+              ></button>
+            </div>
+          </div>
+          <p style={{ textAlign: 'center', marginTop: '20px', color: '#666', fontSize: '0.95rem' }}>
+            ✨ How our platform helps you with financial literacy
+          </p>
         </div>
       </div>
 
@@ -259,48 +332,6 @@ function AICoach() {
           
           <div className="chat-disclaimer">
             <p>⚠️ Disclaimer: I'm an AI assistant. For complex financial decisions, loans, or investments, please consult with a qualified human advisor.</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="coach-features">
-        <h2>What I Can Help With:</h2>
-        <div className="features-grid">
-          <div className="feature-card">
-            <div className="feature-icon">💰</div>
-            <h3>Savings Guidance</h3>
-            <p>Daily savings tips, budgeting help, small habit changes</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">🏦</div>
-            <h3>Loan Advice</h3>
-            <p>When to take loans, what to avoid, understanding interest</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">📱</div>
-            <h3>Digital Safety</h3>
-            <p>UPI safety, avoiding scams, secure banking</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">📋</div>
-            <h3>Scheme Information</h3>
-            <p>Government schemes, eligibility, documents needed</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="ai-limitations">
-        <div className="limitation-card">
-          <div className="limitation-icon">🚫</div>
-          <div className="limitation-content">
-            <h3>When to Talk to a Human:</h3>
-            <ul>
-              <li>Signing important documents or contracts</li>
-              <li>Large loan applications or investments</li>
-              <li>Legal or property matters</li>
-              <li>When you feel pressured or unsure</li>
-              <li>Complex family financial situations</li>
-            </ul>
           </div>
         </div>
       </div>

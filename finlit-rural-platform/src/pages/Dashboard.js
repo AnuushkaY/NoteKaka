@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { LanguageContext } from '../context/LanguageContext';
-import SavingsTracker from '../components/SavingsTracker';
+import { UserContext } from '../context/UserContext';
 import LessonCard from '../components/LessonCard';
 import '../styles/Dashboard.css';
 
 function Dashboard() {
-  const { translate } = useContext(LanguageContext);
+  const { points } = useContext(UserContext);
   
   const stats = {
     villagesReached: 2500,
@@ -84,8 +83,14 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <div className="dashboard-header">
-        <h1>NoteKaka</h1>
-        <p className="tagline">Empowering villages with financial wisdom</p>
+        <div>
+          <h1>NoteKaka</h1>
+          <p className="tagline">Empowering villages with financial wisdom</p>
+        </div>
+        <div className="points-badge">
+          <span className="points-icon">⭐</span>
+          <span className="points-text">{points} Points</span>
+        </div>
       </div>
       
       <div className="stats-grid">
@@ -120,13 +125,6 @@ function Dashboard() {
         </div>
       </div>
       
-      <div className="dashboard-section">
-        <div className="section-header">
-          <h2>Savings Tracker</h2>
-          <p>Track your daily savings progress</p>
-        </div>
-        <SavingsTracker />
-      </div>
       
       <div className="dashboard-section">
         <div className="section-header">

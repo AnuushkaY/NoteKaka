@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { QRCodeSVG } from 'qrcode.react';
 import { LanguageContext } from '../context/LanguageContext';
 import '../styles/DigitalPayments.css';
 
@@ -9,6 +10,69 @@ function DigitalPayments() {
   const [qrAmount, setQrAmount] = useState('');
   const [upiId, setUpiId] = useState('');
   const [showScamInfo, setShowScamInfo] = useState(false);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [quizScore, setQuizScore] = useState(0);
+  const [userAnswers, setUserAnswers] = useState([]);
+  const [quizCompleted, setQuizCompleted] = useState(false);
+
+  const quizQuestions = [
+    {
+      question: 'What should you do before making a UPI payment?',
+      options: [
+        'Verify the recipient name',
+        'Share your UPI PIN',
+        'Share your OTP',
+        'Save UPI PIN on phone'
+      ],
+      correct: 0,
+      explanation: 'Always verify the recipient name before paying. Never share your UPI PIN or OTP.'
+    },
+    {
+      question: 'Which is NOT safe for digital payments?',
+      options: [
+        'Using trusted bank apps',
+        'Public Wi-Fi networks',
+        'Bluetooth connections',
+        'Mobile data'
+      ],
+      correct: 1,
+      explanation: 'Avoid public Wi-Fi for payments. Always use secure networks or mobile data.'
+    },
+    {
+      question: 'What does QR in QR Code stand for?',
+      options: [
+        'Quick Response',
+        'Quality Response',
+        'Query Response',
+        'Question Response'
+      ],
+      correct: 0,
+      explanation: 'QR stands for Quick Response. QR codes can store more data than barcodes.'
+    },
+    {
+      question: 'If someone claims to be a bank official asking for your OTP, what should you do?',
+      options: [
+        'Share the OTP immediately',
+        'Ask them to call official bank number',
+        'Hang up and call your bank directly',
+        'Both B and C'
+      ],
+      correct: 3,
+      explanation: 'Banks never ask for OTP or PIN. Always verify by calling the official number on your card.'
+    },
+    {
+      question: 'How should you handle a suspicious payment request?',
+      options: [
+        'Accept and pay',
+        'Block and report it',
+        'Share with a friend',
+        'Ignore and retry'
+      ],
+      correct: 1,
+      explanation: 'Block and report suspicious payment requests. This protects you and others.'
+    }
+  ];
 
   const paymentMethods = [
     {
@@ -108,6 +172,10 @@ function DigitalPayments() {
   ];
 
   const generateQRCode = () => {
+    if (!upiId || upiId.trim() === '') {
+      alert('Please enter a UPI ID');
+      return;
+    }
     if (!qrAmount || qrAmount <= 0) {
       alert('Please enter a valid amount');
       return;
@@ -125,6 +193,41 @@ function DigitalPayments() {
     setUpiId('');
     setQrAmount('');
     setShowQR(false);
+  };
+
+  const handleQuizStart = () => {
+    setShowQuiz(true);
+    setCurrentQuestion(0);
+    setQuizScore(0);
+    setUserAnswers([]);
+    setQuizCompleted(false);
+  };
+
+  const handleAnswerSelect = (optionIndex) => {
+    const isCorrect = optionIndex === quizQuestions[currentQuestion].correct;
+    const newAnswers = [...userAnswers, optionIndex];
+    setUserAnswers(newAnswers);
+    
+    if (isCorrect) {
+      setQuizScore(quizScore + 1);
+    }
+
+    // Move to next question after 1 second
+    setTimeout(() => {
+      if (currentQuestion < quizQuestions.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        setQuizCompleted(true);
+      }
+    }, 1000);
+  };
+
+  const resetQuiz = () => {
+    setShowQuiz(false);
+    setCurrentQuestion(0);
+    setQuizScore(0);
+    setUserAnswers([]);
+    setQuizCompleted(false);
   };
 
   return (
@@ -171,25 +274,27 @@ function DigitalPayments() {
                   <div className="demo-section">
                     <h3>Try UPI Payment (Demo):</h3>
                     <div className="demo-form">
-                      <div className="form-group">
-                        <label>Enter UPI ID:</label>
-                        <input
-                          type="text"
-                          placeholder="e.g., name@bank"
-                          value={upiId}
-                          onChange={(e) => setUpiId(e.target.value)}
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label>Amount (₹):</label>
-                        <input
-                          type="number"
-                          placeholder="Enter amount"
-                          value={qrAmount}
-                          onChange={(e) => setQrAmount(e.target.value)}
-                          min="1"
-                          max="10000"
-                        />
+                      <div className="form-fields">
+                        <div className="form-group">
+                          <label>Enter UPI ID:</label>
+                          <input
+                            type="text"
+                            placeholder="e.g., name@bank"
+                            value={upiId}
+                            onChange={(e) => setUpiId(e.target.value)}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>Amount (₹):</label>
+                          <input
+                            type="number"
+                            placeholder="Enter amount"
+                            value={qrAmount}
+                            onChange={(e) => setQrAmount(e.target.value)}
+                            min="1"
+                            max="10000"
+                          />
+                        </div>
                       </div>
                       <div className="form-actions">
                         <button 
@@ -199,7 +304,7 @@ function DigitalPayments() {
                           Send Payment
                         </button>
                         <button 
-                          className="button button-outline"
+                          className="button button-secondary"
                           onClick={generateQRCode}
                         >
                           Generate QR
@@ -232,15 +337,21 @@ function DigitalPayments() {
 
                     {showQR && qrAmount && (
                       <div className="qr-demo">
-                        <div className="qr-code-placeholder">
-                          <div className="qr-lines">
-                            <div className="qr-line horizontal"></div>
-                            <div className="qr-line vertical"></div>
-                          </div>
-                          <div className="qr-amount">₹{qrAmount}</div>
-                          <div className="qr-hint">Scan to Pay</div>
+                        <div className="qr-code-container">
+                          <QRCodeSVG 
+                            value={`upi://pay?pa=${upiId}&tn=Payment&am=${qrAmount}`}
+                            size={250}
+                            level="H"
+                            includeMargin={true}
+                            fgColor="#000000"
+                            bgColor="#ffffff"
+                          />
                         </div>
-                        <p className="qr-note">This is a demo QR. In real app, this would be scannable.</p>
+                        <div className="qr-details">
+                          <p><strong>UPI ID:</strong> {upiId}</p>
+                          <p><strong>Amount:</strong> ₹{qrAmount}</p>
+                          <p className="qr-note">📲 Scan this code with any UPI app to make payment</p>
+                        </div>
                       </div>
                     )}
                   </div>
@@ -363,12 +474,119 @@ function DigitalPayments() {
             <div className="practice-icon">🎮</div>
             <h3>Quick Quiz</h3>
             <p>Test your knowledge about digital payment safety</p>
-            <button className="button button-primary">
+            <button 
+              className="button button-primary"
+              onClick={handleQuizStart}
+            >
               Take Quiz
             </button>
           </div>
         </div>
       </div>
+
+      {/* Quiz Modal */}
+      {showQuiz && (
+        <div className="quiz-overlay" onClick={resetQuiz}>
+          <div className="quiz-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="quiz-close" onClick={resetQuiz}>✕</button>
+
+            {quizCompleted ? (
+              <div className="quiz-result">
+                <div className="result-icon">
+                  {quizScore >= 4 ? '🎉' : quizScore >= 3 ? '😊' : '📚'}
+                </div>
+                <h2>Quiz Complete!</h2>
+                <div className="result-score">
+                  <div className="score-value">{quizScore} / {quizQuestions.length}</div>
+                  <div className="score-percentage">
+                    {Math.round((quizScore / quizQuestions.length) * 100)}%
+                  </div>
+                </div>
+                
+                {quizScore >= 4 && (
+                  <p className="result-message">🌟 Excellent! You're a digital payment expert!</p>
+                )}
+                {quizScore === 3 && (
+                  <p className="result-message">✨ Good! Keep learning more about payment safety.</p>
+                )}
+                {quizScore < 3 && (
+                  <p className="result-message">📖 Keep practicing! Payment safety is important.</p>
+                )}
+
+                <div className="result-details">
+                  <h3>Review Your Answers:</h3>
+                  {quizQuestions.map((q, index) => (
+                    <div key={index} className="answer-review">
+                      <div className={`answer-status ${userAnswers[index] === q.correct ? 'correct' : 'incorrect'}`}>
+                        {userAnswers[index] === q.correct ? '✓' : '✗'}
+                      </div>
+                      <div className="answer-info">
+                        <p className="question-text">{q.question}</p>
+                        <p className="answer-text">
+                          Your answer: <strong>{q.options[userAnswers[index]]}</strong>
+                        </p>
+                        {userAnswers[index] !== q.correct && (
+                          <p className="correct-text">
+                            Correct: <strong>{q.options[q.correct]}</strong>
+                          </p>
+                        )}
+                        <p className="explanation">{q.explanation}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <button className="button button-primary" onClick={resetQuiz}>
+                  Done
+                </button>
+              </div>
+            ) : (
+              <div className="quiz-question">
+                <div className="question-header">
+                  <span className="question-number">
+                    Question {currentQuestion + 1} of {quizQuestions.length}
+                  </span>
+                  <div className="progress-bar">
+                    <div 
+                      className="progress-fill"
+                      style={{ width: `${((currentQuestion + 1) / quizQuestions.length) * 100}%` }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="question-content">
+                  <h3>{quizQuestions[currentQuestion].question}</h3>
+                  
+                  <div className="options-list">
+                    {quizQuestions[currentQuestion].options.map((option, index) => (
+                      <button
+                        key={index}
+                        className={`option-btn ${userAnswers[currentQuestion] !== undefined ? (index === quizQuestions[currentQuestion].correct ? 'correct' : index === userAnswers[currentQuestion] ? 'incorrect' : '') : ''}`}
+                        onClick={() => handleAnswerSelect(index)}
+                        disabled={userAnswers[currentQuestion] !== undefined}
+                      >
+                        <span className="option-letter">{String.fromCharCode(65 + index)}</span>
+                        <span className="option-text">{option}</span>
+                        {userAnswers[currentQuestion] !== undefined && (
+                          <span className="option-feedback">
+                            {index === quizQuestions[currentQuestion].correct ? '✓' : (index === userAnswers[currentQuestion] ? '✗' : '')}
+                          </span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+
+                  {userAnswers[currentQuestion] !== undefined && (
+                    <div className="answer-feedback">
+                      <p><strong>Explanation:</strong> {quizQuestions[currentQuestion].explanation}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

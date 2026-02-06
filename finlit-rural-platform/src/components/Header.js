@@ -16,7 +16,6 @@ function Header() {
     { path: '/dashboard', label: 'Dashboard' },
     { path: '/stories', label: 'Stories' },
     { path: '/payments', label: 'Digital Payments' },
-    { path: '/savings', label: 'Savings' },
     { path: '/schemes', label: 'Government Schemes' },
     { path: '/coach', label: 'AI Coach' },
     { path: '/help', label: 'Help' }

@@ -8,7 +8,7 @@ export const stories = [
     icon: '👨‍🌾',
     duration: '10 min',
     lessons: 4,
-    description: 'A farmer learns to save from each harvest for seeds, festivals, and emergencies.',
+    description: 'A farmer learns to save from each harvest for seeds and emergencies.',
     keyLessons: [
       'Save 10% from every harvest immediately',
       'Separate savings for different needs',
@@ -96,7 +96,7 @@ export const stories = [
     icon: '👩‍🏭',
     duration: '12 min',
     lessons: 5,
-    description: 'A homemaker starts tailoring business with micro-loan and learns business management.',
+    description: 'A homemaker starts a tailoring business with a micro-loan.',
     keyLessons: [
       'Separate business and personal money',
       'Keep simple records of income/expenses',

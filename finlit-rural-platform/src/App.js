@@ -14,7 +14,6 @@ import PersonalityTest from './pages/PersonalityTest';
 import Dashboard from './pages/Dashboard';
 import StoryLearning from './pages/StoryLearning';
 import DigitalPayments from './pages/DigitalPayments';
-import SavingsSimulator from './pages/SavingsSimulator';
 import SchemesPage from './pages/SchemesPage';
 import AICoach from './pages/AICoach';
 import HelpPage from './pages/HelpPage';
@@ -40,7 +39,6 @@ function App() {
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/stories" element={<StoryLearning />} />
                   <Route path="/payments" element={<DigitalPayments />} />
-                  <Route path="/savings" element={<SavingsSimulator />} />
                   <Route path="/schemes" element={<SchemesPage />} />
                   <Route path="/coach" element={<AICoach />} />
                   <Route path="/help" element={<HelpPage />} />

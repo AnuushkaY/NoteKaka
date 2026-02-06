@@ -123,18 +123,19 @@ body {
 .header {
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 16px 20px;
+  padding: 16px 40px;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .header-content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 30px;
 }
 
 .logo {
@@ -144,11 +145,14 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
 }
 
 .nav-menu {
   display: flex;
-  gap: 20px;
+  gap: 25px;
+  flex: 1;
+  justify-content: center;
 }
 
 .nav-link {
@@ -158,6 +162,7 @@ body {
   border-radius: 20px;
   transition: all 0.3s ease;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .nav-link:hover,
@@ -170,6 +175,7 @@ body {
   display: flex;
   gap: 15px;
   align-items: center;
+  flex-shrink: 0;
 }
 
 /* Footer Styles */
@@ -222,9 +228,37 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .header-content {
+    gap: 20px;
+  }
+  
+  .nav-menu {
+    gap: 15px;
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .copyright {
+    text-align: left;
+  }
+}
+
 @media (max-width: 768px) {
   .main-content {
     padding: 15px;
+  }
+  
+  .header {
+    padding: 12px 20px;
   }
   
   .header-content {
@@ -235,10 +269,31 @@ body {
   .nav-menu {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 10px;
+  }
+  
+  .footer {
+    padding: 30px 20px 15px;
   }
   
   .footer-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .copyright {
+    text-align: center;
   }
   
   .button {
@@ -252,13 +307,33 @@ body {
 }
 
 @media (max-width: 480px) {
+  .header {
+    padding: 10px 15px;
+  }
+  
+  .header-content {
+    gap: 10px;
+  }
+  
+  .logo {
+    font-size: 18px;
+  }
+  
+  .nav-menu {
+    gap: 5px;
+  }
+  
   .header-actions {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
   
   .nav-link {
     padding: 6px 12px;
-    font-size: 14px;
+    font-size: 13px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
   }
 }
