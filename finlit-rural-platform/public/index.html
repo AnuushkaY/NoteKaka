@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2E7D32" />
+    <meta name="description" content="NoteKaka - Empowering villages with financial wisdom. Learn about savings, loans, digital payments and government schemes in simple language." />
+    <meta name="keywords" content="financial literacy, rural India, savings, loans, UPI, digital payments, government schemes, financial education" />
+    <meta name="author" content="NoteKaka" />
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="NoteKaka - Financial Wisdom for Villages" />
+    <meta property="og:description" content="Learn money management in simple language. Savings, loans, digital payments and government schemes explained for rural India." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://notekaka.org" />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NoteKaka - Financial Wisdom for Villages" />
+    <meta name="twitter:description" content="Empowering rural India with financial literacy" />
+    
+    <!-- PWA manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <!-- Preconnect to important domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    
+    <!-- Page title -->
+    <title>NoteKaka - Financial Wisdom for Rural India</title>
+    
+    <!-- iOS meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="NoteKaka" />
+    
+    <!-- Android meta tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- Microsoft meta tags -->
+    <meta name="msapplication-TileColor" content="#2E7D32" />
+    <meta name="msapplication-TileImage" content="%PUBLIC_URL%/mstile-144x144.png" />
+    
+    <!-- Preload important assets -->
+    <link rel="preload" href="%PUBLIC_URL%/assets/icons/savings.svg" as="image" />
+    <link rel="preload" href="%PUBLIC_URL%/assets/icons/loan.svg" as="image" />
+    
+    <style>
+        /* Critical CSS for initial loading */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #F5F5F5;
+            color: #212121;
+            line-height: 1.6;
+        }
+        
+        /* Loading animation */
+        #root {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* App loading skeleton */
+        .app-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .loading-logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            animation: pulse 2s infinite;
+        }
+        
+        .loading-text {
+            color: #666;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .loading-progress {
+            width: 200px;
+            height: 4px;
+            background: #E0E0E0;
+            border-radius: 2px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .loading-progress-bar {
+            height: 100%;
+            background: #2E7D32;
+            width: 30%;
+            animation: loading 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+        
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(200%); }
+            100% { transform: translateX(400%); }
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Focus styles for keyboard navigation */
+        :focus-visible {
+            outline: 3px solid #2E7D32;
+            outline-offset: 2px;
+        }
+        
+        /* Print styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            a {
+                color: black !important;
+                text-decoration: underline !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading screen -->
+    <div id="loading" class="app-loading">
+        <div class="loading-logo">💰</div>
+        <h1>NoteKaka</h1>
+        <p class="loading-text">Loading financial wisdom for villages...</p>
+        <div class="loading-progress">
+            <div class="loading-progress-bar"></div>
+        </div>
+        <p class="loading-text" style="font-size: 0.9rem; margin-top: 30px;">
+            Empowering villages with financial wisdom
+        </p>
+    </div>
+
+    <!-- Screen reader only content -->
+    <div class="sr-only">
+        <h1>NoteKaka - Financial Literacy Platform</h1>
+        <p>Learn about savings, loans, digital payments, and government schemes in simple language.</p>
+        <p>Designed for rural users, farmers, shopkeepers, students, and first-time learners.</p>
+        <nav>
+            <h2>Main Navigation</h2>
+            <ul>
+                <li><a href="#main-content">Skip to main content</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/stories">Learning Stories</a></li>
+                <li><a href="/payments">Digital Payments</a></li>
+                <li><a href="/savings">Savings Simulator</a></li>
+                <li><a href="/schemes">Government Schemes</a></li>
+                <li><a href="/coach">AI Finance Coach</a></li>
+                <li><a href="/help">Human Help</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Root element for React -->
+    <div id="root"></div>
+
+    <!-- Hide loading screen when app loads -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingElement = document.getElementById('loading');
+            const rootElement = document.getElementById('root');
+            
+            // Hide loading screen when React app mounts
+            if (rootElement.children.length > 0) {
+                loadingElement.style.display = 'none';
+            }
+            
+            // Fallback: hide loading after 5 seconds
+            setTimeout(function() {
+                loadingElement.style.display = 'none';
+            }, 5000);
+        });
+        
+        // Service worker registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(
+                    function(registration) {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    },
+                    function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    }
+                );
+            });
+        }
+        
+        // Detect if user is offline
+        window.addEventListener('offline', function() {
+            if (typeof window.showOfflineMessage === 'function') {
+                window.showOfflineMessage();
+            }
+        });
+        
+        // Detect if user is online again
+        window.addEventListener('online', function() {
+            if (typeof window.hideOfflineMessage === 'function') {
+                window.hideOfflineMessage();
+            }
+        });
+    </script>
+    
+    <!-- No script fallback -->
+    <noscript>
+        <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: white; z-index: 9999; padding: 40px; text-align: center;">
+            <h1 style="color: #2E7D32; margin-bottom: 20px;">JavaScript Required</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                NoteKaka requires JavaScript to function properly. Please enable JavaScript in your browser settings.
+            </p>
+            <p style="color: #666;">
+                For assistance, you can visit our <a href="/help" style="color: #2E7D32; text-decoration: underline;">help page</a> or contact support.
+            </p>
+        </div>
+    </noscript>
+</body>
+</html>
