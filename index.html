@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Money Safar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>🎮 Money Safar</h1>
+  <p id="instruction">Speak or choose what to do with your money</p>
+
+  <!-- Buttons (Backup for voice) -->
+  <div class="buttons">
+    <button onclick="saveMoney()">🪙 Save</button>
+    <button onclick="takeLoan()">🏦 Loan</button>
+    <button onclick="startBusiness()">🧑‍🌾 Business</button>
+  </div>
+
+  <!-- Voice Input -->
+  <button class="mic" onclick="startListening()">🎤 Speak</button>
+
+  <p id="output">You said: —</p>
+  <p id="status">Savings: ₹0</p>
+
+  <script src="script.js"></script>
+</body>
+</html>

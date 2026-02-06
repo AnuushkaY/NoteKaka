@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #f0f7f4;
+}
+
+button {
+  padding: 15px 20px;
+  margin: 10px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons button {
+  background: #4caf50;
+  color: white;
+}
+
+.mic {
+  background: #ff5722;
+  color: white;
+  font-size: 20px;
+}
+
+#output, #status {
+  font-size: 18px;
+  margin-top: 15px;
+}
