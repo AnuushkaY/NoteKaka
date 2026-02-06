@@ -1,0 +1,209 @@
+.dashboard {
+  padding: 20px 0;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--card-background);
+  padding: 25px 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* Dashboard Sections */
+.dashboard-section {
+  margin-bottom: 40px;
+}
+
+.section-header {
+  margin-bottom: 25px;
+}
+
+.section-header h2 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Lessons Grid */
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+/* Modules Grid */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.module-card {
+  background: var(--card-background);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.module-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+}
+
+.module-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.module-title {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.module-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.module-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.action-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.module-card:hover .action-arrow {
+  transform: translateX(5px);
+}
+
+/* Motivation Card */
+.motivation-card {
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  border-left: 5px solid var(--accent-color);
+}
+
+.motivation-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.motivation-content h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.motivation-content p {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .lessons-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modules-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .motivation-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+}

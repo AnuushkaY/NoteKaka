@@ -1,0 +1,262 @@
+.savings-tracker {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tracker-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* Monthly Goal Section */
+.monthly-goal-section {
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+  border: 2px solid #4CAF50;
+}
+
+.monthly-goal-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.goal-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.progress-container {
+  background-color: #E0E0E0;
+  border-radius: 10px;
+  height: 25px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+/* Savings Stats */
+.savings-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-box {
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  border: 2px solid #E0E0E0;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.stat-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.stat-amount.remaining {
+  color: var(--warning-color);
+}
+
+/* Quick Add Section */
+.quick-add-section {
+  margin-bottom: 30px;
+}
+
+.quick-add-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.quick-add-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.quick-add-btn {
+  padding: 15px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quick-add-btn:hover:not(:disabled) {
+  background: #1976D2;
+  transform: translateY(-3px);
+}
+
+.quick-add-btn:disabled {
+  background: #BDBDBD;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Daily Tip */
+.daily-tip {
+  background: #FFF3E0;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+  border-left: 5px solid var(--warning-color);
+}
+
+.daily-tip h3 {
+  color: var(--warning-color);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.daily-tip p {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Streak Section */
+.streak-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+}
+
+.streak-icon {
+  font-size: 3rem;
+}
+
+.streak-info {
+  flex: 1;
+}
+
+.streak-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FF9800;
+  margin-bottom: 5px;
+}
+
+.streak-sub {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Savings History */
+.savings-history {
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+  border: 2px solid #E0E0E0;
+}
+
+.savings-history h3 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #F5F5F5;
+  border-radius: 8px;
+}
+
+.history-amount {
+  color: var(--success-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.history-time {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Tracker Actions */
+.tracker-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quick-add-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .savings-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-amount {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-add-buttons {
+    grid-template-columns: 1fr;
+  }
+  
+  .streak-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .tracker-actions {
+    flex-direction: column;
+  }
+  
+  .button {
+    width: 100%;
+  }
+}
