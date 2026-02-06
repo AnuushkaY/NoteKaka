@@ -13,6 +13,10 @@ function LandingPage() {
     navigate('/test');
   };
 
+  const handlePlayGame = () => {
+    navigate('/games');
+  };
+
   const handleExploreWithoutLogin = () => {
     navigate('/dashboard');
   };
@@ -60,6 +64,12 @@ function LandingPage() {
               onClick={handleStartLearning}
             >
               Start Learning
+            </button>
+            <button 
+              className="button button-success hero-button"
+              onClick={handlePlayGame}
+            >
+              🎮 Play Games
             </button>
             <button 
               className="button button-outline hero-button"

@@ -1,0 +1,368 @@
+.coin-collector-container {
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.back-button {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid #8B7355;
+  color: #333;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 60px;
+}
+
+.back-button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translateX(-3px);
+}
+
+.game-header h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #DA8C00;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.game-stats {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #DA8C00;
+  margin-left: 5px;
+}
+
+/* Game Area */
+.game-area {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 600px;
+  background: linear-gradient(to bottom, #fffacd, #fff9e6);
+  border: 4px solid #DA8C00;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.lane-separator {
+  position: absolute;
+  top: 0;
+  border-left: 2px dashed #DAA520;
+  opacity: 0.5;
+}
+
+/* Obstacles */
+.obstacle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  font-weight: bold;
+  transition: all 0.1s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.obstacle.good {
+  background: linear-gradient(135deg, #26D07C, #20C070);
+  color: white;
+  border: 3px solid #1DB860;
+}
+
+.obstacle.bad {
+  background: linear-gradient(135deg, #FF6B6B, #EE5A5A);
+  color: white;
+  border: 3px solid #DD4444;
+}
+
+.obstacle.collected {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.obstacle-icon {
+  display: block;
+}
+
+/* Player */
+.player {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FFA500, #FF8C00);
+  border-radius: 8px;
+  border: 3px solid #FF8C00;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: left 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+}
+
+.player-icon {
+  display: block;
+}
+
+/* Controls */
+.game-controls {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.control-button {
+  background: linear-gradient(135deg, #FFA500, #FF8C00);
+  border: none;
+  color: white;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.control-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 140, 0, 0.5);
+  background: linear-gradient(135deg, #FFB627, #FFA500);
+}
+
+.control-button:active {
+  transform: translateY(0);
+}
+
+.left-button,
+.right-button {
+  flex: 1;
+  max-width: 200px;
+}
+
+/* Game Info */
+.game-info {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 2px solid #DAA520;
+  max-width: 600px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-text {
+  margin: 0;
+  color: #8B4513;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Pause */
+.pause-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+}
+
+.pause-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFA500, #FF8C00);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pause-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(255, 140, 0, 0.6);
+}
+
+.game-pause-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.pause-menu {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  min-width: 300px;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.pause-menu h2 {
+  color: #DA8C00;
+  font-size: 1.8rem;
+  margin: 0 0 20px 0;
+}
+
+.pause-menu p {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0 0 30px 0;
+}
+
+.menu-button {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  margin: 10px 0;
+  background: #FFA500;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+  background: #FF8C00;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .game-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .game-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .game-stats {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .game-area {
+    max-width: 90vw;
+    height: 500px;
+  }
+
+  .control-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .pause-toggle {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .pause-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-area {
+    max-width: 100%;
+    height: 400px;
+  }
+
+  .stat {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+  }
+
+  .control-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    max-width: 150px;
+  }
+
+  .pause-menu {
+    min-width: 250px;
+    padding: 30px 20px;
+  }
+}
