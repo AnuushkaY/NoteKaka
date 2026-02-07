@@ -18,12 +18,12 @@ function PersonalityTest() {
       id: 1,
       question: 'What best describes you?',
       options: [
-        { id: 'student', label: 'Student', icon: '🎓', description: 'Learning and studying' },
-        { id: 'farmer', label: 'Farmer', icon: '👨‍🌾', description: 'Agriculture and farming' },
-        { id: 'shopkeeper', label: 'Shopkeeper/Business', icon: '🏪', description: 'Small business owner' },
-        { id: 'homemaker', label: 'Homemaker', icon: '👩‍🍳', description: 'Managing household' },
-        { id: 'worker', label: 'Daily Wage Worker', icon: '👷', description: 'Daily employment' },
-        { id: 'other', label: 'Other', icon: '👤', description: 'Other occupation' }
+        { id: 'student', label: 'Student', icon: '', description: 'Learning and studying' },
+        { id: 'farmer', label: 'Farmer', icon: '', description: 'Agriculture and farming' },
+        { id: 'shopkeeper', label: 'Shopkeeper/Business', icon: '', description: 'Small business owner' },
+        { id: 'homemaker', label: 'Homemaker', icon: '', description: 'Managing household' },
+        { id: 'worker', label: 'Daily Wage Worker', icon: '', description: 'Daily employment' },
+        { id: 'other', label: 'Other', icon: '', description: 'Other occupation' }
       ],
       type: 'single'
     },
@@ -31,12 +31,12 @@ function PersonalityTest() {
       id: 2,
       question: 'What scares you most about money?',
       options: [
-        { id: 'bank', label: 'Bank Procedures', icon: '🏦', description: 'Complex bank processes' },
-        { id: 'loan', label: 'Taking Loans', icon: '💰', description: 'Fear of debt traps' },
-        { id: 'losing', label: 'Losing Money', icon: '📉', description: 'Risk of losing savings' },
-        { id: 'digital', label: 'Digital Payments', icon: '📱', description: 'Using phone for money' },
-        { id: 'fraud', label: 'Fraud & Scams', icon: '🚫', description: 'Being cheated' },
-        { id: 'none', label: 'Nothing Scares Me', icon: '🦸', description: 'Confident with money' }
+        { id: 'bank', label: 'Bank Procedures', icon: '', description: 'Complex bank processes' },
+        { id: 'loan', label: 'Taking Loans', icon: '', description: 'Fear of debt traps' },
+        { id: 'losing', label: 'Losing Money', icon: '', description: 'Risk of losing savings' },
+        { id: 'digital', label: 'Digital Payments', icon: '', description: 'Using phone for money' },
+        { id: 'fraud', label: 'Fraud & Scams', icon: '', description: 'Being cheated' },
+        { id: 'none', label: 'Nothing Scares Me', icon: '', description: 'Confident with money' }
       ],
       type: 'multiple'
     },
@@ -44,11 +44,11 @@ function PersonalityTest() {
       id: 3,
       question: 'How do you usually manage money?',
       options: [
-        { id: 'cash', label: 'Keep Cash at Home', icon: '🏠', description: 'Physical cash savings' },
-        { id: 'bank', label: 'Bank Account', icon: '🏦', description: 'Use bank regularly' },
-        { id: 'post', label: 'Post Office', icon: '📮', description: 'Post office savings' },
-        { id: 'family', label: 'Family Manages', icon: '👨‍👩‍👧‍👦', description: 'Family handles money' },
-        { id: 'daily', label: 'Day by Day', icon: '📅', description: 'Manage as needed daily' }
+        { id: 'cash', label: 'Keep Cash at Home', icon: '', description: 'Physical cash savings' },
+        { id: 'bank', label: 'Bank Account', icon: '', description: 'Use bank regularly' },
+        { id: 'post', label: 'Post Office', icon: '', description: 'Post office savings' },
+        { id: 'family', label: 'Family Manages', icon: '', description: 'Family handles money' },
+        { id: 'daily', label: 'Day by Day', icon: '', description: 'Manage as needed daily' }
       ],
       type: 'single'
     },
@@ -56,12 +56,12 @@ function PersonalityTest() {
       id: 4,
       question: 'What is your biggest money goal?',
       options: [
-        { id: 'education', label: 'Education', icon: '📚', description: 'Study or children\'s education' },
-        { id: 'business', label: 'Start Business', icon: '💼', description: 'Begin small business' },
-        { id: 'home', label: 'Buy/Repair Home', icon: '🏡', description: 'House construction/repair' },
-        { id: 'marriage', label: 'Marriage', icon: '💒', description: 'Wedding expenses' },
-        { id: 'savings', label: 'Build Savings', icon: '💰', description: 'Create safety net' },
-        { id: 'equipment', label: 'Buy Equipment', icon: '🔧', description: 'Tools or farming equipment' }
+        { id: 'education', label: 'Education', icon: '', description: 'Study or children\'s education' },
+        { id: 'business', label: 'Start Business', icon: '', description: 'Begin small business' },
+        { id: 'home', label: 'Buy/Repair Home', icon: '', description: 'House construction/repair' },
+        { id: 'marriage', label: 'Marriage', icon: '', description: 'Wedding expenses' },
+        { id: 'savings', label: 'Build Savings', icon: '', description: 'Create safety net' },
+        { id: 'equipment', label: 'Buy Equipment', icon: '', description: 'Tools or farming equipment' }
       ],
       type: 'multiple'
     },
@@ -69,11 +69,11 @@ function PersonalityTest() {
       id: 5,
       question: 'How much do you earn regularly?',
       options: [
-        { id: 'none', label: 'No Regular Income', icon: '⏸️', description: 'Irregular or no income' },
-        { id: 'low', label: 'Under ₹5,000/month', icon: '📉', description: 'Small regular income' },
-        { id: 'medium', label: '₹5,000 - ₹15,000', icon: '📊', description: 'Moderate income' },
-        { id: 'good', label: '₹15,000 - ₹30,000', icon: '📈', description: 'Good regular income' },
-        { id: 'high', label: 'Above ₹30,000', icon: '🚀', description: 'High regular income' }
+        { id: 'none', label: 'No Regular Income', icon: '', description: 'Irregular or no income' },
+        { id: 'low', label: 'Under ₹5,000/month', icon: '', description: 'Small regular income' },
+        { id: 'medium', label: '₹5,000 - ₹15,000', icon: '', description: 'Moderate income' },
+        { id: 'good', label: '₹15,000 - ₹30,000', icon: '', description: 'Good regular income' },
+        { id: 'high', label: 'Above ₹30,000', icon: '', description: 'High regular income' }
       ],
       type: 'single'
     }

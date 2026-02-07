@@ -24,26 +24,12 @@ function Footer() {
       { name: 'Human Help', path: '/help' },
       { name: 'FAQ', path: '/help#faq' },
       { name: 'Contact Us', path: '/help#contact' }
-    ],
-    about: [
-      { name: 'Our Mission', path: '/about' },
-      { name: 'Trust & Safety', path: '/about#trust' },
-      { name: 'Partners', path: '/about#partners' },
-      { name: 'Privacy Policy', path: '/about#privacy' }
     ]
   };
 
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-section">
-          <h3>NoteKaka</h3>
-          <p>Empowering villages with financial wisdom</p>
-          <div className="footer-tagline">
-            <p>"Saving even a small amount daily is like planting a seed that grows into a big tree!"</p>
-          </div>
-        </div>
-
         <div className="footer-section">
           <h3>{translate('Learn')}</h3>
           <ul>
@@ -80,16 +66,16 @@ function Footer() {
 
       <div className="footer-bottom">
         <div className="social-links">
-          <a href="#" className="social-icon" aria-label="Facebook">📘</a>
-          <a href="#" className="social-icon" aria-label="WhatsApp">💬</a>
-          <a href="#" className="social-icon" aria-label="YouTube">📺</a>
-          <a href="#" className="social-icon" aria-label="Instagram">📸</a>
+          <a href="#" className="social-icon" aria-label="Facebook"></a>
+          <a href="#" className="social-icon" aria-label="WhatsApp"></a>
+          <a href="#" className="social-icon" aria-label="YouTube"></a>
+          <a href="#" className="social-icon" aria-label="Instagram"></a>
         </div>
         
         <div className="copyright">
           <p>© {new Date().getFullYear()} NoteKaka. {translate('All rights reserved.')}</p>
           <p className="footer-note">
-            Made with ❤️ for rural India. Available in Hindi, Tamil, Telugu, Bengali, Marathi, and English.
+            Made with for rural India. Available in Hindi, Tamil, Telugu, Bengali, Marathi, and English.
           </p>
         </div>
       </div>

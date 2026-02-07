@@ -18,15 +18,15 @@ function GamesHub() {
       path: '/game'
     },
     {
-      id: 'coins',
-      title: '💎 Coin Collector',
-      description: 'React quickly to collect good financial choices while avoiding bad ones. Increase your coins and reach higher levels!',
-      longDescription: 'Test your reflexes in this fast-paced action game. Collect green arrows (good financial choices) to increase your coin count and earn points. Avoid red arrows (bad choices) which decrease your coins. The game gets faster as you progress through levels.',
-      difficulty: 'Easy',
-      playTime: '3-5 min',
-      color: '#FFA500',
-      icon: '🎯',
-      path: '/coins'
+      id: 'scam-chat',
+      title: '🛡️ Scam Chat Defender',
+      description: 'Learn to identify and avoid online scams through realistic chat simulations. No hints during gameplay - learn from your choices!',
+      longDescription: 'Engage in realistic chat conversations with AI scammers pretending to be from banks, lotteries, or emergencies. Make choices in real-time conversations and learn why certain responses are safe or dangerous. Covers 10+ scam types including KYC fraud, lottery scams, emergency money requests, phishing, and romance scams.',
+      difficulty: 'Easy to Hard',
+      playTime: '3-8 min',
+      color: '#4CAF50',
+      icon: '💬',
+      path: '/scam-chat'
     }
   ];
 
@@ -94,20 +94,77 @@ function GamesHub() {
         <div className="tips-grid">
           <div className="tip-card">
             <div className="tip-number">1</div>
-            <h4>Think Before Acting</h4>
-            <p>Take time to understand each scenario. Financial decisions have consequences!</p>
+            <h4>Think Before Responding</h4>
+            <p>Read messages carefully. Scammers use urgency and emotion to trick you!</p>
           </div>
           <div className="tip-card">
             <div className="tip-number">2</div>
-            <h4>Learn from Mistakes</h4>
-            <p>Use each game as a learning opportunity. Try different strategies!</p>
+            <h4>Verify Information</h4>
+            <p>Always verify through official channels. Real institutions don\'t ask for OTP or passwords!</p>
           </div>
           <div className="tip-card">
             <div className="tip-number">3</div>
-            <h4>Practice Regularly</h4>
-            <p>Help your financial skills improve by playing multiple times.</p>
+            <h4>Recognize Patterns</h4>
+            <p>Scams follow similar patterns. Learn to spot red flags like urgency and too-good-to-be-true offers.</p>
           </div>
         </div>
+      </div>
+
+      <div className="game-features">
+        <h2>🎯 Game Features</h2>
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon">🔒</div>
+            <h4>Realistic Scenarios</h4>
+            <p>Based on actual scam reports and patterns used by fraudsters.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">📱</div>
+            <h4>Chat Interface</h4>
+            <p>Familiar WhatsApp-like interface for authentic learning experience.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">🧠</div>
+            <h4>AI-Powered</h4>
+            <p>Dynamic conversations that adapt based on your responses.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">🎓</div>
+            <h4>Educational Feedback</h4>
+            <p>Detailed explanations of why choices were safe or dangerous.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="scam-types-info">
+        <h2>🛡️ Scam Types Covered</h2>
+        <div className="scam-types-grid">
+          <div className="scam-type">
+            <span className="scam-icon">🏦</span>
+            <span className="scam-name">Bank/KYC Scams</span>
+          </div>
+          <div className="scam-type">
+            <span className="scam-icon">🎰</span>
+            <span className="scam-name">Lottery Scams</span>
+          </div>
+          <div className="scam-type">
+            <span className="scam-icon">🚨</span>
+            <span className="scam-name">Emergency Scams</span>
+          </div>
+          <div className="scam-type">
+            <span className="scam-icon">💼</span>
+            <span className="scam-name">Job Scams</span>
+          </div>
+          <div className="scam-type">
+            <span className="scam-icon">❤️</span>
+            <span className="scam-name">Romance Scams</span>
+          </div>
+          <div className="scam-type">
+            <span className="scam-icon">💻</span>
+            <span className="scam-name">Tech Support Scams</span>
+          </div>
+        </div>
+        <p className="scam-types-note">And 4 more scam types to discover!</p>
       </div>
     </div>
   );

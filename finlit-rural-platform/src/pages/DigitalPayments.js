@@ -311,6 +311,27 @@ function DigitalPayments() {
                         </button>
                       </div>
                     </div>
+                    
+                    {showQR && qrAmount && upiId && (
+                      <div className="qr-demo">
+                        <h4>Your Payment QR Code:</h4>
+                        <div className="qr-code-container">
+                          <QRCodeSVG 
+                            value={`upi://pay?pa=${upiId}&tn=Payment&am=${qrAmount}`}
+                            size={250}
+                            level="H"
+                            includeMargin={true}
+                            fgColor="#000000"
+                            bgColor="#ffffff"
+                          />
+                        </div>
+                        <div className="qr-details">
+                          <p><strong>UPI ID:</strong> {upiId}</p>
+                          <p><strong>Amount:</strong> ₹{qrAmount}</p>
+                          <p className="qr-note">📲 Scan this code with any UPI app to make payment</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
 
@@ -463,10 +484,10 @@ function DigitalPayments() {
             <div className="practice-icon">📞</div>
             <h3>Emergency Contacts</h3>
             <ul>
-              <li>Bank Customer Care</li>
-              <li>UPI App Support</li>
-              <li>Cyber Crime (1930)</li>
-              <li>Local Police</li>
+              <li>Bank Customer Care - Check number on your card back</li>
+              <li>UPI App Support - Help section in your app</li>
+              <li>Cyber Crime (1930) - Toll-free cybercrime reporting</li>
+              <li>Local Police - Dial 100</li>
             </ul>
           </div>
           

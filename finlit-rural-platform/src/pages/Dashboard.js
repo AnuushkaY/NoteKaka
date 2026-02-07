@@ -147,15 +147,7 @@ function Dashboard() {
         </div>
       </div>
       
-      <div className="dashboard-section">
-        <div className="motivation-card">
-          <div className="motivation-icon">💭</div>
-          <div className="motivation-content">
-            <h3>NoteKaka says:</h3>
-            <p>"Saving even a small amount daily is like planting a seed that grows into a big tree!"</p>
-          </div>
-        </div>
-      </div>
+      
     </div>
   );
 }
