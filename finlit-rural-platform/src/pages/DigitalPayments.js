@@ -311,27 +311,6 @@ function DigitalPayments() {
                         </button>
                       </div>
                     </div>
-                    
-                    {showQR && qrAmount && upiId && (
-                      <div className="qr-demo">
-                        <h4>Your Payment QR Code:</h4>
-                        <div className="qr-code-container">
-                          <QRCodeSVG 
-                            value={`upi://pay?pa=${upiId}&tn=Payment&am=${qrAmount}`}
-                            size={250}
-                            level="H"
-                            includeMargin={true}
-                            fgColor="#000000"
-                            bgColor="#ffffff"
-                          />
-                        </div>
-                        <div className="qr-details">
-                          <p><strong>UPI ID:</strong> {upiId}</p>
-                          <p><strong>Amount:</strong> ₹{qrAmount}</p>
-                          <p className="qr-note">📲 Scan this code with any UPI app to make payment</p>
-                        </div>
-                      </div>
-                    )}
                   </div>
                 )}
 
