@@ -79,14 +79,14 @@ function StoryLearning() {
   const getConsequenceMessage = (choice) => {
     if (choice.isGood) {
       return {
-        title: 'Good Choice! ✅',
+        title: 'Good Choice! ',
         message: choice.consequence,
         icon: '🎯',
         color: '#4CAF50'
       };
     } else {
       return {
-        title: 'Think Again! ⚠️',
+        title: 'Think Again! ',
         message: choice.consequence,
         icon: '💡',
         color: '#FF9800'
@@ -236,7 +236,7 @@ function StoryLearning() {
                   onClick={() => handleChoiceSelect(choice)}
                   disabled={showConsequence}
                 >
-                  <div className="choice-icon">{choice.isGood ? '✅' : '⚠️'}</div>
+                  <div className="choice-icon">{choice.isGood ? '' : ''}</div>
                   <div className="choice-content">
                     <h4>{choice.text}</h4>
                     <p className="choice-reason">{choice.reason}</p>
@@ -278,13 +278,13 @@ function StoryLearning() {
                 
                 <div className="score-feedback">
                   {calculateScore() >= 80 && (
-                    <p>Excellent! You made great financial decisions! 🏆</p>
+                    <p>Excellent! You made great financial decisions! </p>
                   )}
                   {calculateScore() >= 50 && calculateScore() < 80 && (
-                    <p>Good job! You're learning well. Keep practicing! 👍</p>
+                    <p>Good job! You're learning well. Keep practicing! </p>
                   )}
                   {calculateScore() < 50 && (
-                    <p>That's okay! Learning from mistakes is important. Try again! 💪</p>
+                    <p>That's okay! Learning from mistakes is important. Try again! </p>
                   )}
                 </div>
               </div>
@@ -294,7 +294,7 @@ function StoryLearning() {
                 <ul>
                   {selectedStory.keyLessons.map((lesson, index) => (
                     <li key={index}>
-                      <span className="lesson-icon">📖</span>
+                      <span className="lesson-icon"></span>
                       <span>{lesson}</span>
                     </li>
                   ))}

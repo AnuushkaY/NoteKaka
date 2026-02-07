@@ -17,6 +17,10 @@ import DigitalPayments from './pages/DigitalPayments';
 import SchemesPage from './pages/SchemesPage';
 import AICoach from './pages/AICoach';
 import HelpPage from './pages/HelpPage';
+import MoneyMaze from './pages/MoneyMaze';
+import CoinCollector from './pages/ScamChatGame';
+import GamesHub from './pages/GamesHub';
+import ScamChatGame from './pages/ScamChatGame';
 
 // Initialize API health check
 api.checkApiHealth().then(isAvailable => {
@@ -42,6 +46,9 @@ function App() {
                   <Route path="/schemes" element={<SchemesPage />} />
                   <Route path="/coach" element={<AICoach />} />
                   <Route path="/help" element={<HelpPage />} />
+                  <Route path="/games" element={<GamesHub />} />
+                  <Route path="/game" element={<MoneyMaze />} />
+                  <Route path="/scam-chat" element={<ScamChatGame />} />
                 </Routes>
               </main>
               <Footer />

@@ -1,15 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { LanguageContext } from '../context/LanguageContext';
-import { VoiceContext } from '../context/VoiceContext';
 import LanguageSelector from './LanguageSelector';
-import VoiceToggle from './VoiceToggle';
 import '../styles/components.css';
 
 function Header() {
   const location = useLocation();
   const { translate } = useContext(LanguageContext);
-  const { isVoiceMode } = useContext(VoiceContext);
 
   const navItems = [
     { path: '/', label: 'Home' },
@@ -43,13 +40,6 @@ function Header() {
         
         <div className="header-actions">
           <LanguageSelector />
-          <VoiceToggle />
-          {isVoiceMode && (
-            <div className="voice-indicator">
-              <span className="pulse-dot"></span>
-              <span>{translate('Voice Mode')}</span>
-            </div>
-          )}
         </div>
       </div>
     </header>
